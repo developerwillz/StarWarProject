@@ -1,0 +1,7 @@
+{
+  "name": "Ionic-Angular-StarWar-Project",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

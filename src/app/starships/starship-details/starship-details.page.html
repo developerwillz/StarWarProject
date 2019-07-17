@@ -1,0 +1,79 @@
+<ion-header>
+  <ion-toolbar color='primary'>
+      <ion-buttons slot="start">
+          <ion-back-button></ion-back-button>
+        </ion-buttons>
+    <ion-title>{{ Rep.name }}</ion-title>
+    <ion-buttons slot="primary">
+      <ion-button (click)="ShareFacebook()">
+        <ion-icon slot="icon-only" name="logo-facebook"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+      <p>Model:</p>
+      <ion-card-content>{{Rep.model}}</ion-card-content>
+      <p>Manufacturer:</p>
+      <ion-card-content>{{Rep.manufacturer}}</ion-card-content>
+      <p>Cost in_Credits:</p>
+      <ion-card-content>{{Rep.cost_in_credits}}</ion-card-content>
+      <p>Length:</p>
+      <ion-card-content>{{Rep.length}}</ion-card-content>
+      <p>Max Atmosphering Speed:</p>
+      <ion-card-content>{{Rep.max_atmosphering_speed}}</ion-card-content>
+      <p>Crew:</p>
+      <ion-card-content>{{Rep.crew}}</ion-card-content>
+      <p>Passengers:</p>
+      <ion-card-content>{{Rep.passengers}}</ion-card-content>
+      <p>Cargo Capacity:</p>
+      <ion-card-content>{{Rep.cargo_capacity}}</ion-card-content>
+      <p>Consumables:</p>
+      <ion-card-content>{{Rep.consumables}}</ion-card-content>
+      <p>Hyperdrive Rating:</p>
+      <ion-card-content>{{Rep.hyperdrive_rating}}</ion-card-content>
+      <p>MGLT:</p>
+      <ion-card-content>{{Rep.MGLT}}</ion-card-content>
+      <p>Starship Class:</p>
+      <ion-card-content>{{Rep.starship_class}}</ion-card-content>
+      <p>Pilots:</p>
+      <ul>
+        <li *ngFor="let p of Rep.pilots">
+          {{ p }}
+        </li>
+      </ul>
+      <p>Films:</p>
+      <ul>
+        <li *ngFor="let f of Rep.films">
+          {{ f }}
+        </li>
+      </ul>
+      <p>Created:</p>
+      <ion-card-content>{{Rep.created}}</ion-card-content>
+      <p>Edited:</p>
+      <ion-card-content>{{Rep.edited}}</ion-card-content>
+      <p>url:</p>
+      <ion-card-content>{{Rep.url}}</ion-card-content>
+    </ion-card>
+    
+<div>
+  <ion-grid>
+    <ion-row *ngFor="let comment of comments">
+        <ion-chip ion-col>
+          <ion-label>{{ comment }}</ion-label>
+        </ion-chip>
+    </ion-row>
+  </ion-grid>
+</div>
+<div padding>
+  <form name = 'CommentsForm' id="CommentsForm">
+<ion-input [(ngModel)]="commentInput" name="thisInput"  placeholder="Enter Your Comments" type="text" requeired="ture"></ion-input>
+<!-- <ion-label color="dark">{{ commentInput }}</ion-label> -->
+<ion-button expand="block" (click)="refresh()">Submit Comments</ion-button>
+</form>
+</div>
+
+</ion-content>

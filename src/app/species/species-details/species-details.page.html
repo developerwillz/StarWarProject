@@ -1,0 +1,71 @@
+<ion-header>
+  <ion-toolbar color='primary'>
+      <ion-buttons slot="start">
+          <ion-back-button></ion-back-button>
+        </ion-buttons>
+    <ion-title>{{ Rep.name }}</ion-title>
+    <ion-buttons slot="primary">
+      <ion-button (click)="ShareFacebook()">
+        <ion-icon slot="icon-only" name="logo-facebook"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-card>
+        <p>Classification:</p>
+        <ion-card-content>{{Rep.classification}}</ion-card-content>
+        <p>Designation:</p>
+        <ion-card-content>{{Rep.designation}}</ion-card-content>
+        <p>Average Height:</p>
+        <ion-card-content>{{Rep.average_height}}</ion-card-content>
+        <p>Skin Colors:</p>
+        <ion-card-content>{{Rep.skin_colors}}</ion-card-content>
+        <p>Eye Colors:</p>
+        <ion-card-content>{{Rep.eye_colors}}</ion-card-content>
+        <p>Average Lifespan:</p>
+        <ion-card-content>{{Rep.average_lifespan}}</ion-card-content>
+        <p>Language:</p>
+        <ion-card-content>{{Rep.language}}</ion-card-content>
+        <p>Homeworld:</p>
+        <ion-card-content>{{Rep.homeworld}}</ion-card-content>
+        <p>People:</p>
+        <ul>
+          <li *ngFor="let p of Rep.people">
+            {{ p }}
+          </li>
+        </ul>
+        <p>Films:</p>
+        <ul>
+          <li *ngFor="let f of Rep.films">
+            {{ f }}
+          </li>
+        </ul>
+        <p>Created:</p>
+        <ion-card-content>{{Rep.created}}</ion-card-content>
+        <p>Edited:</p>
+        <ion-card-content>{{Rep.edited}}</ion-card-content>
+        <p>url:</p>
+        <ion-card-content>{{Rep.url}}</ion-card-content>
+        </ion-card>
+        
+<div>
+  <ion-grid>
+    <ion-row *ngFor="let comment of comments">
+        <ion-chip ion-col>
+          <ion-label>{{ comment }}</ion-label>
+        </ion-chip>
+    </ion-row>
+  </ion-grid>
+</div>
+<div padding>
+  <form name = 'CommentsForm' id="CommentsForm">
+<ion-input [(ngModel)]="commentInput" name="thisInput"  placeholder="Enter Your Comments" type="text" requeired="ture"></ion-input>
+<!-- <ion-label color="dark">{{ commentInput }}</ion-label> -->
+<ion-button expand="block" (click)="refresh()">Submit Comments</ion-button>
+</form>
+</div>
+
+</ion-content>
